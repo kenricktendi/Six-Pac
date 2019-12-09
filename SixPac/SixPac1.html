@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<style>
+			</style>
+			
+			<title> Six-Pac </title>
+			<link rel="stylesheet" type="text/css" href="style.css">
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+			<script src="C:\Users\Melvin\Documents\SixPac\p5\p5\p5.js"></script>
+			
+		</head>
+			<body>
+				<h1 id="mainHeader"> Six-Pac </h1>
+					<script>
+						var sixPac;
+						var brickMap;
+						var sixPacX = 400;
+						var sixPacY = 490;
+						function setup() {
+							createCanvas(800, 800);
+						}
+					
+						function draw() {
+							drawBackground();
+							drawSixPac();
+						}
+						
+						
+						function preload() {
+							brickMap = loadImage("https://i.ibb.co/7Xj0xny/Six-Pac-Map6.png");
+							sixPac = loadImage("https://i.ibb.co/RSYD7sT/sixPac3u.png");
+						}
+
+						function keyPressed () {
+							if(keyCode === UP_ARROW ) {
+								sixPac = loadImage("https://i.ibb.co/3zpmrSH/sixPac3u.png");
+								sixPacY -= 5;
+							}
+							if(keyCode === DOWN_ARROW) {
+								sixPac = loadImage("https://i.ibb.co/V9Zh7db/sixPac3d.png");
+								sixPacY += 5;
+							}
+							if(keyCode === RIGHT_ARROW) {
+								sixPac = loadImage("https://i.ibb.co/ck5Vtqm/sixPac3r.png");
+								sixPacX += 5;
+							}
+							if(keyCode === LEFT_ARROW) {
+								sixPac = loadImage("https://i.ibb.co/P4rsVBS/sixPac3l.png");
+								sixPacX -= 5;
+							}
+						}
+					
+						function drawBackground() {
+							imageMode(CORNER);
+							background(brickMap);
+						}
+						
+						function drawSixPac () {
+							imageMode(CENTER);
+							image(sixPac,sixPacX,sixPacY);
+						}
+					</script>	
+					
+			</body>
+	<!---
+		https://i.ibb.co/q7Yw4L5/sixPac3u.png
+https://i.ibb.co/P4rsVBS/sixPac3l.png
+https://i.ibb.co/ck5Vtqm/sixPac3r.png
+https://i.ibb.co/V9Zh7db/sixPac3d.png
+	
+<img src="https://i.ibb.co/RSYD7sT/sixPac3u.png" alt="sixPac3u" border="0">
+<img src="https://i.ibb.co/tmyJwW3/sixPac3d.png" alt="sixPac3d" border="0">
+<img src="https://i.ibb.co/R4WwQpK/sixPac3l.png" alt="sixPac3l" border="0">
+<img src="https://i.ibb.co/vk9sncq/sixPac3r.png" alt="sixPac3r" border="0">
+	--->
+	</html>
+
+
