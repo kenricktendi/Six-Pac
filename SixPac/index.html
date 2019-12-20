@@ -20,11 +20,21 @@
 						var sixPacMoveX = 0;
 						var sixPacMoveY = 0; 
 						
+						function draw() {
+						//Default function
+							drawBackground();
+							drawSixPac();
+							moveSixPac();
+							pseudoBarriers();
+							backAround();
+						}
 						function preload() {
+						//Default function
 							brickMap = loadImage("https://i.ibb.co/7Xj0xny/Six-Pac-Map6.png");
 							sixPac = loadImage("https://i.ibb.co/3zpmrSH/sixPac3u.png");
 						}
 						function keyPressed () {
+						//Allows keys to be pressed to control various functions in the game
 							if(keyCode === UP_ARROW ) {
 								sixPac = loadImage("https://i.ibb.co/3zpmrSH/sixPac3u.png");
 								sixPacMoveY = -4;
@@ -53,30 +63,46 @@
 						}
 						
 						function moveSixPac () {
+						//Makes Six-Pac move by using the "sixPacMove" variable
 							sixPacX = sixPacX + sixPacMoveX;
 							sixPacY = sixPacY + sixPacMoveY;
 						}
 						
 						function drawSixPac () {
+						//Updates Six-Pacs movement and sets the image mode to center
 							imageMode(CENTER);
 							image(sixPac,sixPacX,sixPacY);
 						}
 						
 						function pseudoBarriers () {
-							if(((sixPacX > 31) && (sixPacY > 670))&&((sixPacX < 249)&&(sixPacY < 770))) {
+						//Barrier 1
+							if(((sixPacX > 31) && (sixPacY > 671))&&((sixPacX < 249)&&(sixPacY < 769))) {
 								sixPacX-= 10;
 								sixPacY+= 10;
 							}
-							if(((sixPacX > -31) && (sixPacY > 570))&&((sixPacX < 189)&&(sixPacY < 670))) {
+						//Barrier 2
+							if(((sixPacX > -31) && (sixPacY > 571))&&((sixPacX < 189)&&(sixPacY < 669))) {
 								sixPacX-= 10;
 								sixPacY+= 10;
 							}
-							if(((sixPacX > 191) && (sixPacY > 570))&&((sixPacX < 399)&&(sixPacY < 670))) {
+						//Barrier 31
+							if(((sixPacX > 191) && (sixPacY > 571))&&((sixPacX < 399)&&(sixPacY < 669))) {
+								sixPacX-= 10;
+								sixPacY+= 10;
+							}
+						//Barrier 32
+							if(((sixPacX > 251) && (sixPacY > 671))&&((sixPacX < 399)&&(sixPacY < 769))) {
+								sixPacX-= 10;
+								sixPacY+= 10;
+							}
+						//Barrier 33
+							if(((sixPacX > -31) && (sixPacY > 771))&&((sixPacX < 369)&&(sixPacY < 899))) {
 								sixPacX-= 10;
 								sixPacY+= 10;
 							}
 						}
 						 function backAround() {
+						//Loops Sprites back around
 							if(sixPacX > 800) {
 								sixPacX = 0;
 							} else if(sixPacX < 0) {
@@ -90,18 +116,11 @@
 						 }
 
 						 function setup() {
+						 //Default function
 							createCanvas(800, 800);
 						}
 					
-						function draw() {
-							drawBackground();
-							drawSixPac();
-							moveSixPac();
-							pseudoBarriers();
-							backAround();
-						}
 					</script>	
 					
 			</body>
 	</html>
-
